@@ -296,14 +296,14 @@ body.ready .audio{animation:slideIn .6s ease 2.15s both}
 .vbtn--ghost{opacity:.8}
 
 /* ---- 游戏弹窗 ---- */
-.modal__box--game .modal__inner--game{padding:clamp(12px,1.8vw,22px)}
-.game{display:flex;flex-direction:column;gap:10px;align-items:center}
+.modal__box--game .modal__inner--game{padding:clamp(10px,1.6vw,20px)}
+.game{display:flex;flex-direction:column;gap:8px;align-items:center}
 .game canvas{
-  display:block;width:100%;height:auto;max-height:74svh;
+  display:block;width:auto;height:auto;max-width:100%;max-height:74svh;
   border:3px solid #0b0b0f;background:#07070a;touch-action:none;
   box-shadow:0 0 0 3px rgba(224,18,40,.35),0 18px 40px rgba(0,0,0,.6);
 }
-.game__hint{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-size:11.5px;letter-spacing:.08em;opacity:.72}
+.game__hint{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-size:11px;letter-spacing:.06em;opacity:.72}
 .game__hint b{color:var(--red-bright)}
 
 /* ===================== 响应式 ===================== */
@@ -315,6 +315,29 @@ body.ready .audio{animation:slideIn .6s ease 2.15s both}
   .btn{transform:skewX(-6deg) translateX(0);box-shadow:6px 6px 0 rgba(11,11,15,.75)}
   @keyframes btnIn{from{opacity:0;transform:skewX(-6deg) translateX(-50px)}to{opacity:1;transform:skewX(-6deg)}}
   .btn:hover,.btn:focus-visible{transform:skewX(-6deg) translate(-6px,-3px)}
+
+  /* 手机：视频铺满，画面居中，避免 16:9 被挤成一小块 */
+  .video{display:grid;place-items:center;min-height:56svh;aspect-ratio:auto}
+  .video canvas{width:100%;height:auto;max-height:80svh}
+}
+
+/* 窄屏弹窗：更满的显示区域，叉保持在右上角可点 */
+@media (max-width:640px){
+  .modal{padding:8px}
+  .modal__box{max-height:96svh;box-shadow:8px 8px 0 var(--red),14px 18px 36px rgba(0,0,0,.6)}
+  .modal__inner{padding:18px 16px 20px}
+  .modal__box--wide{width:100%}
+  .modal__box--wide .modal__inner--video{padding:8px}
+  .modal__box--game{width:100%}
+
+  /* 视频：占满可用高度并垂直居中，控件常显（触屏无 hover） */
+  .modal__box--wide .modal__inner--video{display:flex}
+  .video{flex:1;min-height:min(74svh,620px)}
+  .video__ctrl{opacity:.92}
+  .vbtn{padding:9px 15px;font-size:13px}
+
+  .x{top:8px;right:8px;width:44px;height:44px}
+  .x__l,.x__r{width:22px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}

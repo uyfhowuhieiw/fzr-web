@@ -3,7 +3,17 @@
 一个纯静态的单页网站：打开就是配乐主页，人物照片渐入 + 标题渐入，底部三个按钮分别打开
 「个人简介」「介绍视频」「小游戏」三个弹窗，每个弹窗右上角都有叉可以关掉。
 
-## 怎么打开
+## 公网链接（可直接发微信）
+
+**https://uyfhowuhieiw.github.io/fzr-web/**
+
+已部署在 GitHub Pages（HTTPS、无需登录就能打开），微信里直接发这条链接即可。
+对应仓库：<https://github.com/uyfhowuhieiw/fzr-web>（公开）
+
+以后要更新内容：改完文件后在 `fzr` 文件夹里执行
+`git add -A && git commit -m "更新" && git push`，等 1~2 分钟 GitHub Pages 自动生效。
+
+## 本地打开
 
 推荐用自带的本地服务器（音乐自动播放和读取轮廓数据在 `file://` 下会被浏览器限制）：
 

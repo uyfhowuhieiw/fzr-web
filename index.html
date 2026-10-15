@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c00d20">
+<title>肥美先生烦着瑞</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b0b0f'/%3E%3Crect x='4' y='4' width='56' height='56' fill='none' stroke='%23e01228' stroke-width='6'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='900' text-anchor='middle' fill='%23f6f3ee' font-family='sans-serif'%3E%E8%82%A5%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/portrait.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<!-- ===================== 背景装饰层 ===================== -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__red"></div>
+  <div class="bg__halftone"></div>
+  <div class="bg__rays"></div>
+  <div class="bg__noise"></div>
+  <div class="bg__stripes"></div>
+</div>
+
+<!-- ===================== 首页主视觉 ===================== -->
+<main class="stage" id="stage">
+  <section class="hero" aria-label="肥美先生烦着瑞 主页">
+
+    <!-- 人物：照片渐入 + 轮廓线描 -->
+    <div class="portrait" id="portrait">
+      <div class="portrait__frame">
+        <img class="portrait__img" id="portraitImg" src="assets/portrait.jpg"
+             alt="肥美先生：军帽、绿色军装、黑框眼镜" decoding="async">
+        <div class="portrait__duo" aria-hidden="true"></div>
+        <svg class="portrait__line" id="portraitLine" viewBox="0 0 504 672"
+             preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <polygon class="pl-shape" id="plShape" points=""></polygon>
+          <polygon class="pl-outline" id="plOutline" points=""></polygon>
+          <g class="pl-details" id="plDetails"></g>
+        </svg>
+        <div class="portrait__scan" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- 文字与按钮 -->
+    <div class="panel">
+      <p class="kicker"><span class="kicker__line"></span>FZR&nbsp;/&nbsp;PROFILE&nbsp;NO.01</p>
+
+      <h1 class="title" id="title" aria-label="肥美先生烦着瑞">
+        <span class="title__row title__row--sub" id="titleSub"></span>
+        <span class="title__row title__row--main" id="titleMain"></span>
+      </h1>
+
+      <p class="tagline" id="tagline">军帽 · 绿色军装 · 黑框眼镜 · 憨厚将军</p>
+
+      <nav class="menu" id="menu" aria-label="功能菜单">
+        <button class="btn" type="button" data-open="bio" style="--i:0">
+          <span class="btn__idx">01</span>
+          <span class="btn__label">个人简介</span>
+          <span class="btn__tail" aria-hidden="true">PROFILE</span>
+          <span class="btn__bar" aria-hidden="true"></span>
+        </button>
+        <button class="btn" type="button" data-open="video" style="--i:1">
+          <span class="btn__idx">02</span>
+          <span class="btn__label">介绍视频</span>
+          <span class="btn__tail" aria-hidden="true">MOVIE</span>
+          <span class="btn__bar" aria-hidden="true"></span>
+        </button>
+        <button class="btn" type="button" data-open="game" style="--i:2">
+          <span class="btn__idx">03</span>
+          <span class="btn__label">小游戏</span>
+          <span class="btn__tail" aria-hidden="true">GAME</span>
+          <span class="btn__bar" aria-hidden="true"></span>
+        </button>
+      </nav>
+
+      <!-- 音乐控制 -->
+      <div class="audio" id="audioBox">
+        <button class="audio__btn" id="audioBtn" type="button" aria-pressed="false" aria-label="播放背景音乐">
+          <span class="audio__icon" aria-hidden="true"></span>
+          <span class="audio__text" id="audioText">播放BGM</span>
+        </button>
+        <div class="audio__bars" id="audioBars" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <span class="audio__name">CYPN - 3strikes</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== 弹窗：个人简介 ===================== -->
+<div class="modal" id="modal-bio" data-modal="bio" hidden>
+  <div class="modal__scrim" data-close></div>
+  <div class="modal__box modal__box--bio" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
+    <button class="x" type="button" data-close aria-label="关闭">
+      <span class="x__l"></span><span class="x__r"></span>
+    </button>
+    <div class="modal__inner">
+      <p class="kicker"><span class="kicker__line"></span>PROFILE&nbsp;/&nbsp;01</p>
+      <h2 class="bio__title" id="bioTitle">{范哲睿太肥美哈哈哈}</h2>
+      <div class="bio__rule" aria-hidden="true"></div>
+      <ul class="bio__list">
+        <li><b>姓名</b><span>范哲睿</span></li>
+        <li><b>代号</b><span>肥美先生</span></li>
+        <li><b>装备</b><span>军帽 / 绿色军装 / 黑框眼镜</span></li>
+        <li><b>气质</b><span>憨厚将军</span></li>
+        <li><b>状态</b><span>正被“烦着瑞”</span></li>
+      </ul>
+      <p class="bio__stamp" aria-hidden="true">FZR&nbsp;·&nbsp;肥美&nbsp;·&nbsp;CERTIFIED</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 弹窗：介绍视频 ===================== -->
+<div class="modal" id="modal-video" data-modal="video" hidden>
+  <div class="modal__scrim" data-close></div>
+  <div class="modal__box modal__box--wide" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+    <button class="x" type="button" data-close aria-label="关闭">
+      <span class="x__l"></span><span class="x__r"></span>
+    </button>
+    <div class="modal__inner modal__inner--video">
+      <h2 class="sr-only" id="videoTitle">介绍视频</h2>
+      <div class="video" id="videoStage">
+        <canvas id="videoCanvas" width="1280" height="720"></canvas>
+        <div class="video__lines" aria-hidden="true"></div>
+        <div class="video__ctrl">
+          <button class="vbtn" id="videoReplay" type="button">重播</button>
+          <button class="vbtn vbtn--ghost" id="videoSkip" type="button">跳到结尾</button>
+          <button class="vbtn vbtn--ghost" id="videoMute" type="button" aria-pressed="false">音效:开</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 弹窗：小游戏 ===================== -->
+<div class="modal" id="modal-game" data-modal="game" hidden>
+  <div class="modal__scrim" data-close></div>
+  <div class="modal__box modal__box--game" role="dialog" aria-modal="true" aria-labelledby="gameTitle">
+    <button class="x" type="button" data-close aria-label="关闭">
+      <span class="x__l"></span><span class="x__r"></span>
+    </button>
+    <div class="modal__inner modal__inner--game">
+      <h2 class="sr-only" id="gameTitle">吃豆人：肥美将军版</h2>
+      <div class="game">
+        <canvas id="gameCanvas" width="760" height="860"></canvas>
+        <div class="game__hint">
+          <span><b>← → ↑ ↓</b> / <b>WASD</b> 移动</span>
+          <span>手机：<b>滑动</b>屏幕</span>
+          <span><b>P</b> 暂停 · <b>R</b> 重开</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="video.js"></script>
+<script src="pacman.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
